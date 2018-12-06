@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width,initial-scale=1.0" name="viewport" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+<!-- bootstrap compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style type="text/css">
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #map {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .tab-content {
+          overflow: auto;
+          max-height: 300px !important;
+      }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<!-- bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--Leaflet -->
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet-src.js"></script>
+<script src="../src/Leaflet.Control.GetFeatureInfoTabs.js"></script>
+
+<script type="text/javascript">
+
+  var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmAttrib='Map data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
+  var osm = new L.TileLayer(osmUrl, {
+    attribution: osmAttrib,
+    detectRetina: true
+  });
+
+  var map = new L.Map('map', {
+    layers: [osm],
+    center: [38.013476231041935, -86.13281250000001],
+    zoom: 4,
+    zoomControl: true
+  });
+
+  L.control.getfeatureinfotabs().addTo(map);
+
+  var states = L.tileLayer.wms('https://demo.boundlessgeo.com/geoserver/ows?', {
+    layers: 'topp:states',
+    title: 'States',
+    transparent:true,
+    format:'image/png'
+  }).addTo(map);
+
+  var roads = L.tileLayer.wms('https://demo.boundlessgeo.com/geoserver/ows?', {
+    layers: 'ne:ne_10m_roads_north_america',
+    title:'Roads',
+    cql_filter: "prefix = 'US'",
+    transparent:true,
+    format:'image/png',
+  }).addTo(map);
+
+  var baseMaps = {
+    "OSM": osm
+  };
+  var overlayMaps = {
+    "States": states,
+    "Roads": roads
+  };
+  L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+
+
+</script>
+</body>
+</html>

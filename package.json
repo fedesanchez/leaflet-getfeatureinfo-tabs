@@ -1,0 +1,46 @@
+{
+  "name": "Leaflet.Control.GetFeatureInfoTabs",
+  "version": "0.0.1",
+  "description": "Simple bootstrap tabs-panel for wms getfeatureinfo requests",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fedesanchez/leaflet-getfeatureinfo-tabs.git"
+  },
+  "homepage": "http://geosys.xyz",
+  "author": {
+    "name": "Federico Sanchez",
+    "email": "federico.augusto.sanchez@gmail.com",
+    "url": "http://geosys.xyz"
+  },
+  "main": "src/Leaflet.Control.GetFeatureInfoTabs.js",
+  "keywords": [
+    "tab",
+    "wms",
+    "maps",
+    "leaflet",
+    "featureinfo",
+    "plugin",
+    "layer",
+    "bootstrap",
+    "window",
+    "identify",
+    "query"
+  ],
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "build": "grunt",
+    "bump:minor": "grunt bump-only:minor && grunt && grunt bump-commit",
+    "bump:patch": "grunt bump-only:patch && grunt && grunt bump-commit",
+    "start": "grunt connect"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-connect": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "leaflet": "^1.3.4"
+  }
+}
