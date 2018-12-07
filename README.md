@@ -3,13 +3,11 @@ Leaflet WMS GetFeatureInfo using bootstrap tabs-panel
 
 This control allows to make multiple ajax requests to different WMS services at the same time with no need of a proxy or worrying about CORS. The results are displayed on a bootstrap tab panel.
 
-Copyright [Fede Sanchez](http://geosys.xyz/)
-
 Tested in Leaflet 1.3.4, jQuery 3 and Bootstrap 3
 
-**Demo:**
+**Demo:** [Link](https://fedesanchez.github.io/leaflet-getfeatureinfo-tabs/demo/)
 
-[not ready yeat](#)
+
 
 ## Requirements:
 
@@ -28,6 +26,8 @@ Tested in Leaflet 1.3.4, jQuery 3 and Bootstrap 3
   ```
 
 ## Usage:   
+
+ Create a Leaflet map and add some L.tileLayer.wms layers, then:
 
   ```javascript
       L.control.getfeatureinfotabs().addTo(map);
