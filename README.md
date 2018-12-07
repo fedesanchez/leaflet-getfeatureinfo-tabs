@@ -5,7 +5,7 @@ This control allows to make multiple ajax requests to different WMS services at 
 
 Tested in Leaflet 1.3.4, jQuery 3 and Bootstrap 3
 
-**Demo:** [Link](https://fedesanchez.github.io/leaflet-getfeatureinfo-tabs/demo/)
+**Demo:** [Link](https://fedesanchez.github.io/leaflet-getfeatureinfo-tabs/demo/index.html)
 
 
 
