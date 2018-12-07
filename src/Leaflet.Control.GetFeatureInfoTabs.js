@@ -43,8 +43,6 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
     L.Util.setOptions(this, options);
   },
 
-  // @method addTo(map: Map): this
-	// Adds the control to the given map.
 	addTo: function (map) {
 		this.remove();
 		this._map = map;
@@ -52,8 +50,6 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
 		return this;
 	},
 
-	// @method remove: this
-	// Removes the control from the map it is currently active on.
 	remove: function () {
 		if (!this._map) {
 			return this;
@@ -63,12 +59,11 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
 		return this;
 	},
 
-
   hideLoading: function(){
     $("#loading-wmsgetfeatureinfo-requests").hide();
   },
 
-  update_status:function(){
+  updateStatus:function(){
     var that = this;
     that.done_requests++;
     if(that.requested_layers == that.done_requests){
@@ -83,7 +78,7 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
 
     }
   },
-  // @method getFeatureInfo: evt
+
   getFeatureInfo: function (evt) {
     //initialize
     if(this.popup) {
@@ -129,6 +124,7 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
     }
 
   },
+
   tabInfo: function(layer,latlng){
     //todo: we need to access somehow control.layers and get the title
 
@@ -140,6 +136,7 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
       'url':url
     }
   },
+  
   queryLayer: function(url,index){
     var target = '#tab-'+index;
     var that = this;
@@ -168,7 +165,7 @@ L.Control.GetFeatureInfoTabs = L.Evented.extend({
       }
 
       $(target).html(content);
-      that.update_status();
+      that.updateStatus();
     });
   },
 

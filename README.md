@@ -29,15 +29,15 @@ Tested in Leaflet 1.3.4, jQuery 3 and Bootstrap 3
 
 ## Usage:   
 
-   ```javascript
+  ```javascript
       L.control.getfeatureinfotabs().addTo(map);
-    ```    
+  ```    
 
 ### Options
 
 Object containing popupOptions inherited from [L.popup](https://leafletjs.com/reference-1.3.4.html#popup-l-popup):
 
-````javascript
+```javascript
     var options = {
       popupOptions:{
         minWidth:600,
@@ -46,10 +46,10 @@ Object containing popupOptions inherited from [L.popup](https://leafletjs.com/re
       }
     }
     L.control.getfeatureinfotabs(options).addTo(map);
-````    
+```    
 
 ### Tips and tricks
-  maxHeight doesnt seem to work on popups so we need to fixit using css
+  maxHeight doesn't seem to work on popups so we need to add some css
 
 ````css
     .tab-content {
